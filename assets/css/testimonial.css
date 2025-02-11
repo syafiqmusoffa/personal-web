@@ -1,0 +1,48 @@
+.testimonial-star-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.testimonial-star-buttons button {
+    font-size: 16px;
+    font-family: "Poppins", serif;
+    background-color: orangered;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.testimonial-list {
+    width: 90%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+
+.testimonial-list article {
+    /* width: 30%; */
+    border: 1px solid #aaa;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.testimonial-list article img {
+    width: 100%;
+}
+
+.testimonial-item-caption {
+    color: #777;
+    font-style: italic;
+}
+
+@media screen and (max-width: 768px) {
+    .testimonial-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
