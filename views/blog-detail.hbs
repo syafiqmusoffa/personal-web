@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Web</title>
+    <link rel="icon" href="/img/team-leader.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+<body>
+    <div class="background">
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="/img/logo.png" alt="Bootstrap" width="50" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="blog">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="testimonials">My Project</a>
+            </li>
+          </ul>
+          <a class="btn btn-orangered" href="contact">Contact me</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Blog Detail Section -->
+    <article class="blog-item">
+        <div class="blog-item-img">
+          <img src="/img/fakta-kucing-lucu-1024x683.jpg" alt="" />
+        </div>
+        <div class="blog-item-text">
+          <div class="blog-item-buttons">
+              <button class="blog-edit-button"> Edit Blog</button>
+              <button class="blog-post-button">Post Blog</button>
+          </div>
+
+          <a href="blog-detail.html" style="text-decoration: none;">
+              <h1 class="blog-item-title"> kucing lucu </h1>
+          </a>
+
+
+          <p>30 jan 2025 11:22 WIB | Syaf</p>
+
+          <p style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+          <p class="blog-item-relative-time"></p>
+      </div>
+  </article>
+  <script src="/js/navbar.js"></script>
+</body>
+</html>
