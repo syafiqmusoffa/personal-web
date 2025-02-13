@@ -1,161 +1,96 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal Web</title>
-    <link rel="icon" href="/img/team-leader.png" />
-    <link rel="stylesheet" href="/css/style.css" />
+{{#> layout currentPage='Home'}}
+<main class="main-content">
+  <!-- PROFILE CARD -->
+  <section id="card-section">
+    <div class="profile-card">
+      <img class="profile-img" src="/img/fakta-kucing-lucu-1024x683.jpg" alt="1697558928565.JPG" />
 
-    <link
-      href="/css/bootstrap/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="/img/logo.png" alt="Bootstrap" width="50" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="blog">Blog</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimonials">My Project</a>
-            </li>
-          </ul>
-          <a class="btn btn-orangered" href="contact">Contact me</a>
-        </div>
+      <h1>Gray Cat</h1>
+
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente,
+        exercitationem nesciunt qui laboriosam praesentium labore sequi cum
+        fugit expedita similique quisquam mollitia quas consectetur eos
+        totam.
+      </p>
+
+      <table class="table table-striped table-hover">
+        <tr>
+          <th scope="col">Experience</th>
+          <th scope="col">Year</th>
+        </tr>
+        <tr>
+          <td>Develop Personal Website</td>
+          <td>2025</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+  <!-- INTORDUCTION SECTION-->
+  <section id="introduction">
+    <div id="what-i-do">
+      <h1>What I Do?</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident
+        inventore suscipit eligendi pariatur autem soluta consequatur optio
+        explicabo voluptatibus, facilis non odit a laboriosam illum vel! Ut
+        et natus quidem commodi, sunt assumenda doloribus excepturi magnam
+        voluptatem dolore ab sed eius consequatur dolorem eos facere, totam
+        accusamus, rem voluptas architecto eveniet perspiciatis sequi harum
+        voluptatibus?
+      </p>
+    </div>
+
+    <!-- Technologies -->
+
+    <div id="technologies">
+      <div id="frontend">
+        <img src="/img/js.png" />
+        <h2>Fronted Developer</h2>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad et
+          autem repudiandae debitis delectus quos?
+        </p>
       </div>
-    </nav>
+      <div id="version-control">
+        <img src="/img/git.png" />
+        <h2>Version Control</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
+          voluptates blanditiis reprehenderit sit, aperiam sequi!
+        </p>
+      </div>
+      <div id="automated-deployment">
+        <img src="/img/deploy.png" />
+        <h2>Automated Deployment</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
+          veritatis maiores consectetur eos tempora beatae.
+        </p>
+      </div>
+    </div>
 
-    <main class="main-content">
-      <!-- PROFILE CARD -->
-      <section id="card-section">
-        <div class="profile-card">
-          <img
-            class="profile-img"
-            src="/img/fakta-kucing-lucu-1024x683.jpg"
-            alt="1697558928565.JPG"
-          />
-
-          <h1>Gray Cat</h1>
-
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente,
-            exercitationem nesciunt qui laboriosam praesentium labore sequi cum
-            fugit expedita similique quisquam mollitia quas consectetur eos
-            totam.
-          </p>
-
-          <table class="table table-striped table-hover">
-            <tr>
-              <th scope="col">Experience</th>
-              <th scope="col">Year</th>
-            </tr>
-            <tr>
-              <td>Develop Personal Website</td>
-              <td>2025</td>
-            </tr>
-          </table>
-        </div>
-      </section>
-      <!-- INTORDUCTION SECTION-->
-      <section id="introduction">
-        <div id="what-i-do">
-          <h1>What I Do?</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident
-            inventore suscipit eligendi pariatur autem soluta consequatur optio
-            explicabo voluptatibus, facilis non odit a laboriosam illum vel! Ut
-            et natus quidem commodi, sunt assumenda doloribus excepturi magnam
-            voluptatem dolore ab sed eius consequatur dolorem eos facere, totam
-            accusamus, rem voluptas architecto eveniet perspiciatis sequi harum
-            voluptatibus?
-          </p>
-        </div>
-
-        <!-- Technologies -->
-
-        <div id="technologies">
-          <div id="frontend">
-            <img src="/img/js.png" />
-            <h2>Fronted Developer</h2>
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad et
-              autem repudiandae debitis delectus quos?
-            </p>
-          </div>
-          <div id="version-control">
-            <img src="/img/git.png" />
-            <h2>Version Control</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-              voluptates blanditiis reprehenderit sit, aperiam sequi!
-            </p>
-          </div>
-          <div id="automated-deployment">
-            <img src="/img/deploy.png" />
-            <h2>Automated Deployment</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque
-              veritatis maiores consectetur eos tempora beatae.
-            </p>
-          </div>
-        </div>
-
-        <!--SOCIALS-->
-        <div id="socials">
-          <h2>Find Me On!</h2>
-          <div>
-            <a href="a">
-              <img src="/img/facebook.png" />
-            </a>
-            <a href="a">
-              <img src="/img/twitter.png" />
-            </a>
-            <a href="a">
-              <img src="/img/instagram.png" />
-            </a>
-            <a href="a">
-              <img src="/img/mail.png" />
-            </a>
-            <a href="a">
-              <img src="/img/whatsapp.png" />
-            </a>
-          </div>
-        </div>
-      </section>
-    </main>
-    <script src="/js/navbar.js"></script>
-    <script src="/js/learning/9.3.ajax.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  
-    </script>
-  </body>
-</html>
+    <!--SOCIALS-->
+    <div id="socials">
+      <h2>Find Me On!</h2>
+      <div>
+        <a href="a">
+          <img src="/img/facebook.png" />
+        </a>
+        <a href="a">
+          <img src="/img/twitter.png" />
+        </a>
+        <a href="a">
+          <img src="/img/instagram.png" />
+        </a>
+        <a href="a">
+          <img src="/img/mail.png" />
+        </a>
+        <a href="a">
+          <img src="/img/whatsapp.png" />
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+{{/layout}}

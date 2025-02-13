@@ -1,35 +1,35 @@
-let dummyTestimonials = [
-    {
-        author: "Amir Mahmud",
-        rating: 5,
-        caption: "Keren Banget!",
-        image: "my-img.jpg"
-    },
-    {
-        author: "Alex Josua",
-        rating: 5,
-        caption: "Mantapp! Terima Kasih!",
-        image: "coding.jpg"
-    },
-    {
-        author: "Christina Adelia",
-        rating: 4,
-        caption: "Sudah Bagus! Suka Banget",
-        image: "my-img.jpg"
-    },
-    {
-        author: "Leo G",
-        rating: 2,
-        caption: "Sudah Bagus tapi harus diperbaiki lagi",
-        image: "coding.jpg"
-    },
-    {
-        author: "Amel Effendi",
-        rating: 4,
-        caption: "Asik Banget!",
-        image: "blog-img.png"
-    },
-];
+// let dummyTestimonials = [
+//     {
+//         author: "Amir Mahmud",
+//         rating: 5,
+//         caption: "Keren Banget!",
+//         image: "my-img.jpg"
+//     },
+//     {
+//         author: "Alex Josua",
+//         rating: 5,
+//         caption: "Mantapp! Terima Kasih!",
+//         image: "coding.jpg"
+//     },
+//     {
+//         author: "Christina Adelia",
+//         rating: 4,
+//         caption: "Sudah Bagus! Suka Banget",
+//         image: "my-img.jpg"
+//     },
+//     {
+//         author: "Leo G",
+//         rating: 2,
+//         caption: "Sudah Bagus tapi harus diperbaiki lagi",
+//         image: "coding.jpg"
+//     },
+//     {
+//         author: "Amel Effendi",
+//         rating: 4,
+//         caption: "Asik Banget!",
+//         image: "blog-img.png"
+//     },
+// ];
 
 function fetchTestimonials() {
     return new Promise((resolve, reject) => {
