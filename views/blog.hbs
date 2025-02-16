@@ -2,54 +2,37 @@
 
 <!-- BLOG LIST -->
 <h1 style="text-align: center; margin-top: 30px;">My Blog</h1>
-<div style="width: 90%; margin: 10px auto; text-align: right">
+<div class="create-blog">
   <a href="/blog-create" class="blog-post-button"> Create Blog </a>
 </div>
 <section id="blogList" class="blog-list" style="background-color: white">
-  <article class="blog-item">
-    <div class="blog-item-img">
-      <img src="/img/fakta-kucing-lucu-1024x683.jpg" alt="" />
-    </div>
-    <div class="blog-item-text">
-      <div class="blog-item-buttons">
-        <button class="blog-edit-button"> Edit </button>
-        <button class="blog-post-button">Post </button>
-      </div>
+  <div class="v1"></div>
 
-      <a href="blog-detail" style="text-decoration: none;">
-        <h1 class="blog-item-title"> kucing lucu </h1>
-      </a>
-
-
-      <p>30 jan 2025 11:22 WIB | Syaf</p>
-
-      <p style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-        Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-        of
-        type and scrambled it to make a type specimen book. </p>
-      <p class="blog-item-relative-time">1 day ago</p>
-    </div>
   </article>
 </section>
 
 {{#each blogs}}
 <section id="blogList" class="blog-list" style="background-color: white">
+  <div class="v1"></div>
   <article class="blog-item">
     <div class="blog-item-img">
       <img src="{{this.image}}" alt="" />
     </div>
     <div class="blog-item-text">
       <div class="blog-item-buttons">
-        <button class="blog-edit-button"> Edit </button>
-        <button class="blog-post-button">Post </button>
+        <a href="/blog-edit/{{@index}}" class="btn btn-primary"> Edit </a>
+        <form style="display: inline;" action="/blog/{{@index}}?_method=Delete" method="post">
+          <button onclick="return confirm ('Are you sure you want to delete?')" class="deleteBlogButton btn btn-danger"
+            type="submit">Delete</button>
+        </form>
       </div>
 
-      <a href="blog-detail" style="text-decoration: none;">
+      <a href="blog/{{@index}}" style="text-decoration: none;">
         <h1 class="blog-item-title">{{this.title}} </h1>
       </a>
 
 
-      <p>{{formatDateToWib this.postedAt}} |{{this.author}}</p>
+      <p>{{formatDateToWib this.postedAt}} | {{this.author}}</p>
 
       <p>{{this.content}}</p>
       <p class="blog-item-relative-time">{{getRelativeTime this.postedAt}}</p>

@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 const hbs = require("hbs");
 const path = require("path");
+const methodOverride = require("method-override")
+
+const { renderHome, renderBlog, createBlog, renderBlogDetail, renderTestimonials, renderContact, deleteBlog, renderCreateBlog, renderEditBlog, updateBlog } = require("./controllers/controller-v1")
 
 const { formatDateToWIB, getRelativeTime } = require("./utils/time")
 
+const port = 3000;
 
 app.set("view engine", "hbs");
 app.set(`views`, path.join(__dirname, "./views"));
@@ -13,6 +16,7 @@ app.set(`views`, path.join(__dirname, "./views"));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("assets"));
+app.use(methodOverride("_method"));
 
 hbs.registerPartials(__dirname + "/views/partials", function (err) { })
 hbs.registerHelper("equal", function (a, b) {
@@ -21,73 +25,66 @@ hbs.registerHelper("equal", function (a, b) {
 hbs.registerHelper("formatDateToWib", formatDateToWIB)
 hbs.registerHelper("getRelativeTime", getRelativeTime)
 
-let blogs = []
+
 
 // HOME
 
-app.get("/", (req, res) => {
-    res.render("index")
-})
+app.get("/", renderHome)
 
-app.get("/index", (req, res) => {
-    // const id = req.params.id
-    // res.send(`Halo! ini halaman utama`);
-    res.render("index")
-})
+app.get("/index", renderHome)
 
 // Blog list
 
-app.get("/blog", (req, res) => {
-    console.log(blogs);
-    res.render("blog", { blogs: blogs })
-})
+app.get("/blog", renderBlog)
 
 //  create blog page
-app.get("/blog-create", (req, res) => {
-    res.render("blog-create")
-})
+app.get("/blog-create", renderCreateBlog)
 
 // submit new blog
-app.post("/blog-create", (req, res) => {
-    // const title = req.body.title
-    // const content = req.body.content
-    // const image = req.body.image
+app.post("/blog-create", createBlog)
 
-    const { title, content } = req.body // title, & content
-    // console.log("judulnya adalah", title)
-    // console.log("kontenya adalah", content)
+// edit blog page
+app.get("/blog-edit/:id", renderEditBlog)
 
-    let image = "https://picsum.photos/200/300"
-    let newBlog = {
-        title: title,
-        content: content,
-        image: "https://picsum.photos/200/300",
-        author: "Syaf",
-        postedAt: new Date(),
-    };
+// submit/save edited blog
+app.patch("/blog-update/:id", updateBlog)
 
-    blogs.push(newBlog)
+// app.post("/blog-create", (req, res) => {
+//     // const title = req.body.title
+//     // const content = req.body.content
+//     // const image = req.body.image
 
-    res.redirect("/blog")
-})
+//     const { title, content } = req.body // title, & content
+//     // console.log("judulnya adalah", title)
+//     // console.log("kontenya adalah", content)
+
+//     let image = "https://picsum.photos/200/300"
+//     let newBlog = {
+//         title: title,
+//         content: content,
+//         image: "https://picsum.photos/200/300",
+//         author: "Syaf",
+//         postedAt: new Date(),
+//     };
+
+//     blogs.push(newBlog)
+
+//     res.redirect("/blog")
 
 // Blog-detail
 
-app.get("/blog-detail", (req, res) => {
-    res.render("blog-detail")
-})
+app.get("/blog/:id", renderBlogDetail)
+
+// DELETE EXISTING BLOG
+app.delete("/blog/:id", deleteBlog)
 
 // Testimonials
 
-app.get("/testimonials", (req, res) => {
-    res.render("testimonials")
-})
+app.get("/testimonials", renderTestimonials)
 
 // Contact
 
-app.get("/contact", (req, res) => {
-    res.render("contact")
-})
+app.get("/contact", renderContact)
 
 // REQUEST PARAMS
 // app.get("/about/:id", (req, res) => {

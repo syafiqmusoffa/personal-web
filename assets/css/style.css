@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-html{
-    font-family: "Poppins", sans-serif; 
+html {
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -22,9 +22,9 @@ nav {
 
 .main-menu {
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: space-between;
-    }
+}
 
 .mobile-menu {
     display: none;
@@ -85,6 +85,7 @@ nav {
 #card-section {
     flex: 1;
 }
+
 .profile-card {
     align-content: center;
     border-style: none;
@@ -95,40 +96,43 @@ nav {
     /*margin: 40px auto;*/
     padding: 15px;
 }
+
 .profile-card h1 {
     text-align: center;
-    color:blue;
-    font-size:larger;
+    color: blue;
+    font-size: larger;
 
 }
+
 .profile-card p {
     text-align: justify;
-    color:grey;
+    color: grey;
     margin: 5px 5px;
     text-indent: 25px;
-        
+
 }
+
 .profile-table {
-   display: flex ;
-   justify-content: center ; 
-   border-collapse: collapse ; 
-   border-radius: 15px ; 
-   width: fit-content ;
-   margin: 20px auto ;
+    display: flex;
+    justify-content: center;
+    border-collapse: collapse;
+    border-radius: 15px;
+    width: fit-content;
+    margin: 20px auto;
 }
 
 .profile-table th {
-    border-style: solid ;
+    border-style: solid;
 }
 
-.profile-table td  {
-    border-style: solid ;
+.profile-table td {
+    border-style: solid;
 }
 
-.profile-img { 
+.profile-img {
     border-radius: 15px;
     padding: 0%;
-    width: 100%; 
+    width: 100%;
     display: flex;
     margin: 0 auto;
 }
@@ -176,13 +180,16 @@ nav {
 .contact-form h1 {
     text-align: center;
 }
+
 .form-field {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
-.form-field input, select, textarea {
+.form-field input,
+select,
+textarea {
     padding: 10px;
     font-size: 16px;
     background-color: #eaeaea;
@@ -194,10 +201,10 @@ nav {
     text-decoration: none;
     width: 20%;
     background: red;
-    color:white;
+    color: white;
     padding: 10px 25px;
     border-radius: 5px;
-    border:none;
+    border: none;
     font-size: 16px;
     font-family: "Poppins", serif;
     cursor: pointer;
@@ -232,21 +239,30 @@ nav {
 }
 
 
+
 /* BLOG LIST STYLES */
 .blog-list {
     width: 90%;
     margin: 30px auto;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
+}
+
+.create-blog {
+    width: 90%;
+    margin: 10px auto;
+    text-align: right;
 }
 
 .blog-item {
     height: 300px;
     padding: 15px;
+    padding-bottom: 50px;
     border: 1px solid #aaa;
     border-radius: 15px;
     display: flex;
     gap: 15px;
     margin-bottom: 20px;
+
 }
 
 .blog-item-img {
@@ -261,6 +277,10 @@ nav {
 .blog-item-text {
     /* background-color: aquamarine; */
     flex: 1;
+}
+
+.blog-item-text a h1 {
+    color: black;
 }
 
 .blog-item-buttons {
@@ -290,9 +310,17 @@ nav {
     cursor: pointer;
 }
 
+.v1 {
+    border-top: 1px solid black;
+    width: 100%;
+    display: none;
+    margin-bottom: 20px;
+}
+
 .blog-item-relative-time {
     color: gray;
     text-align: right;
+    flex: 1;
 }
 
 /* BLOG DETAIL STYLES */
@@ -308,11 +336,13 @@ nav {
 
 @media screen and (max-width: 768px) {
     nav {
-        padding: 2px 15px;        
+        padding: 2px 15px;
     }
+
     .main-menu {
         display: none;
     }
+
     .mobile-menu {
         display: flex;
         justify-content: space-between;
@@ -321,7 +351,7 @@ nav {
     .mobile-menu-show {
         display: block;
     }
-    
+
     .mobile-menu-hide {
         display: none;
     }
@@ -339,7 +369,7 @@ nav {
     .main-content {
         display: contents;
     }
-    
+
     #card-section {
         padding: 30px;
     }
@@ -367,27 +397,46 @@ nav {
         margin: 30px auto;
     }
 
-    
+
     /* BLOG LIST STYLES */
     .blog-list {
         margin: 30px auto;
     }
-    
+
+    .create-blog {
+        margin-top: 30px;
+    }
+
     .blog-item-buttons {
-        display:inline-flexbox;
+        display: inline-flexbox;
         justify-content: space-between;
     }
 
     .blog-item {
         height: 100px;
+        display: contents;
+        border: 1px solid black;
     }
 
-     /*contact form*/
-     .contact-form {
+    .blog-item-img {
+        margin-bottom: 20px;
+    }
+
+    .blog-item-img img {
+        width: 100%;
+    }
+
+    .v1 {
+        display: block;
+    }
+
+    /*contact form*/
+    .contact-form {
         width: fit-content;
         margin: 100px auto;
     }
-    .form-field button{
-        width: 45%;       
+
+    .form-field button {
+        width: 45%;
     }
 }
