@@ -13,28 +13,25 @@
 
 {{#each blogs}}
 <section id="blogList" class="blog-list" style="background-color: white">
-  <div class="v1"></div>
   <article class="blog-item">
     <div class="blog-item-img">
       <img src="{{this.image}}" alt="" />
     </div>
     <div class="blog-item-text">
       <div class="blog-item-buttons">
-        <a href="/blog-edit/{{@index}}" class="btn btn-primary"> Edit </a>
-        <form style="display: inline;" action="/blog/{{@index}}?_method=Delete" method="post">
+        <a href="/blog-edit/{{this.id}}" class="btn btn-primary"> Edit </a>
+        <form style="display: inline;" action="/blog/{{this.id}}?_method=Delete" method="post">
           <button onclick="return confirm ('Are you sure you want to delete?')" class="deleteBlogButton btn btn-danger"
             type="submit">Delete</button>
         </form>
       </div>
 
-      <a href="blog/{{@index}}" style="text-decoration: none;">
+      <a href="blog/{{this.id}}" style="text-decoration: none;">
         <h1 class="blog-item-title">{{this.title}} </h1>
       </a>
 
-
       <p>{{formatDateToWib this.createdAt}} | {{this.authorId}}</p>
-
-      <p>{{this.content}}</p>
+      <p style="text-align: justify;">{{this.content}}</p>
       <p class="blog-item-relative-time">{{getRelativeTime this.createdAt}}</p>
     </div>
   </article>

@@ -4,7 +4,18 @@ const hbs = require("hbs");
 const path = require("path");
 const methodOverride = require("method-override")
 
-const { renderHome, renderBlog, createBlog, renderBlogDetail, renderTestimonials, renderContact, deleteBlog, renderCreateBlog, renderEditBlog, updateBlog } = require("./controllers/controller-v1")
+const {
+    renderHome,
+    createBlog,
+    renderTestimonials,
+    renderContact,
+    updateBlog } = require("./controllers/controller-v1")
+const {
+    renderBlog,
+    renderBlogDetail,
+    renderEditBlog,
+    renderCreateBlog,
+    deleteBlog } = require('./controllers/controller-v2')
 
 const { formatDateToWIB, getRelativeTime } = require("./utils/time")
 
@@ -105,7 +116,9 @@ app.get("/contact", renderContact)
 //     // res.send("ok");
 // })
 
-
+app.get("*", (req, res) => {
+    res.render("page-404")
+})
 
 app.listen(port, () => {
     console.log(`My personal web app Listening on port ${port}`);
