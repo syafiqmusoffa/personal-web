@@ -20,10 +20,20 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{#if (equal currentPage 'Testimonials')}} active fw-bold{{/if}}"
-                        aria-current="page" href="testimonials">My Project</a>
+                        aria-current="page" href="testimonials">Testimonials</a>
                 </li>
             </ul>
-            <a class="btn btn-orangered" class="nav-link" href="contact">Contact me</a>
+
+            <div>
+                {{#if user}}
+                <span class="me-3">Selamat datang, {{user.name}}</span>
+                <a href="/logout" class="me-3">Logout</a>
+                {{/if}}
+                {{!-- {{#if logout}}
+                <a class="btn" class="nav-link" href="login">Login</a>
+                {{/if}} --}}
+                <a class="btn btn-orangered" class="nav-link" href="contact">Contact me</a>
+            </div>
         </div>
     </div>
 </nav>

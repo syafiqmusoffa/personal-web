@@ -1,0 +1,33 @@
+{{#> layout currentPage='Register'}}
+<!-- Login -->
+<form id="login-form" action="/login" method="post" class="auth-form">
+    <h4 class="mb-3">Welcome back! Please Login</h4>
+
+    <div class="input-group mb-3">
+        <input name="email" id="email" type="email" class="form-control" aria-label="Sizing example input"
+            aria-describedby="email" placeholder="email" required>
+    </div>
+    <div class="input-group mb-3">
+        <input name="password" id="password" type="password" class="form-control" aria-label="Sizing example input"
+            aria-describedby="password" placeholder="password" required>
+    </div>
+
+    {{#if messages.error}}
+    <div class="alert alert-danger" role="alert">
+        {{messages.error}}
+    </div>
+    {{/if}}
+    {{#if messages.success}}
+    <div class="alert alert-success" role="alert">
+        {{messages.success}}
+    </div>
+    {{/if}}
+    <p class="text-center">sign up? <a href="/register">here</a></p>
+
+    <div class="text-center mt-4">
+        <button type="submit">Login</button>
+    </div>
+</form>
+
+
+{{/layout}}

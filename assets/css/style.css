@@ -81,6 +81,24 @@ nav {
     padding: 50px 50px;
 }
 
+/* authentication */
+.auth-form {
+    width: 400px;
+    margin: 30px auto;
+}
+
+.auth-form button {
+    font-size: 16px;
+    font-family: "Poppins", serif;
+    background-color: orangered;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
 /* profile card */
 #card-section {
     flex: 1;
@@ -322,6 +340,7 @@ textarea {
 .blog-detail {
     width: 60%;
     margin: 40px auto;
+    text-align: center;
 }
 
 .blog-detail img {

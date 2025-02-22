@@ -2,9 +2,11 @@
 
 <!-- BLOG LIST -->
 <h1 style="text-align: center; margin-top: 30px;">My Blog</h1>
+{{#if user}}
 <div class="create-blog">
   <a href="/blog-create" class="blog-post-button"> Create Blog </a>
 </div>
+{{/if}}
 <section id="blogList" class="blog-list" style="background-color: white">
   <div class="v1"></div>
 
@@ -18,6 +20,8 @@
       <img src="{{this.image}}" alt="" />
     </div>
     <div class="blog-item-text">
+      {{!-- di dalam scope each, user tidak dikenal --}}
+      {{#if (equal ../user.id this.authorId)}}
       <div class="blog-item-buttons">
         <a href="/blog-edit/{{this.id}}" class="btn btn-primary"> Edit </a>
         <form style="display: inline;" action="/blog/{{this.id}}?_method=Delete" method="post">
@@ -25,12 +29,13 @@
             type="submit">Delete</button>
         </form>
       </div>
+      {{/if}}
 
       <a href="blog/{{this.id}}" style="text-decoration: none;">
         <h1 class="blog-item-title">{{this.title}} </h1>
       </a>
 
-      <p>{{formatDateToWib this.createdAt}} | {{this.authorId}}</p>
+      <p>{{formatDateToWib this.createdAt}} | {{this.user.name}}</p>
       <p style="text-align: justify;">{{this.content}}</p>
       <p class="blog-item-relative-time">{{getRelativeTime this.createdAt}}</p>
     </div>
