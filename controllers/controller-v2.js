@@ -40,6 +40,7 @@ async function authLogin(req, res) {
     delete loggedInUser.password
 
     req.session.user = loggedInUser
+    localStorage.setItem("user-data", JSON.stringify(loggedInUser))
 
     req.flash("success", `Selamat Datang, ${loggedInUser.name}`)
 
@@ -81,6 +82,7 @@ async function authRegister(req, res) {
 
 async function renderHome(req, res) {
     const user = req.session.user
+    const userStored = localStorage.getItem("user-data")
     res.render("index", { user: user })
 }
 
