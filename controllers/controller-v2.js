@@ -82,7 +82,7 @@ async function authRegister(req, res) {
 
 async function renderHome(req, res) {
     const user = req.session.user
-    const userStored = localStorage.getItem("user-data")
+    // const userStored = localStorage.getItem("user-data")
     res.render("index", { user: user })
 }
 
