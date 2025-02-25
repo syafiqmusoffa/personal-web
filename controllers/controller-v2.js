@@ -1,6 +1,6 @@
 const { Sequelize, where } = require("sequelize")
 const bcrypt = require("bcrypt")
-const config = require('../config/config.json')
+const config = require('../config/config.js')
 const { Blog, User } = require("../models")
 const { Where } = require("sequelize/lib/utils")
 const path = require("path")
