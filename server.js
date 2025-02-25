@@ -42,7 +42,8 @@ app.set(`views`, path.join(__dirname, "./views"));
 // modul apa saja yang digunakan dalam express
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static("assets"));
+// app.use(express.static("assets"));
+app.use("/assets", express.static(path.join(__dirname, "./assets")));
 app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 app.use(methodOverride("_method"));
 app.use(flash())

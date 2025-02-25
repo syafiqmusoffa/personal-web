@@ -41,11 +41,11 @@ function fetchTestimonials() {
             if (xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText);
                 // console.log("Response :", JSON.parse(response));
-                resolve (response.testimonials);
+                resolve(response.testimonials);
 
             } else {
                 // console.error("Error :", xhr.status);
-                reject ("Error :",xhr.status);
+                reject("Error :", xhr.status);
             }
         };
 
@@ -58,7 +58,7 @@ function fetchTestimonials() {
 const testimonialsContainer = document.getElementById("testimonialsContainer")
 
 const testimonialsHTML = (array) => {
-    return array.map (
+    return array.map(
         (testimonial) => `
         <article>
           <img src="${testimonial.image}" alt="testimonial-img" />
@@ -87,8 +87,8 @@ async function filterTestimonialsByStar(rating) {
 
     console.log(filteredTestimonials);
 
-    if(filteredTestimonials.length === 0) {
-        return (testimonialsContainer.innerHTML =`<p>No Testimonials.</p>`);
+    if (filteredTestimonials.length === 0) {
+        return (testimonialsContainer.innerHTML = `<p>No Testimonials.</p>`);
     }
 
     testimonialsContainer.innerHTML = testimonialsHTML(filteredTestimonials)
