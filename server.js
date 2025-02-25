@@ -5,6 +5,8 @@ const path = require("path");
 const methodOverride = require("method-override")
 const flash = require("express-flash")
 const session = require("express-session")
+const upload = require("./middlewares/upload-file")
+require("dotenv").config()
 
 const {
 
@@ -27,9 +29,11 @@ const {
     deleteBlog,
     updateBlog } = require('./controllers/controller-v2')
 
-const { formatDateToWIB, getRelativeTime } = require("./utils/time")
+const { formatDateToWIB, getRelativeTime } = require("./utils/time");
 
-const port = 3000;
+const chechkUser = require("./middlewares/auth");
+
+const port = process.env.SERVER_PORT || 3000;
 
 app.set("view engine", "hbs");
 app.set(`views`, path.join(__dirname, "./views"));
@@ -39,6 +43,7 @@ app.set(`views`, path.join(__dirname, "./views"));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static("assets"));
+app.use("/uploads", express.static(path.join(__dirname, "./uploads")));
 app.use(methodOverride("_method"));
 app.use(flash())
 app.use(session(
@@ -85,13 +90,13 @@ app.post("/register", authRegister)
 
 // Blog list
 
-app.get("/blog", renderBlog)
+app.get("/blog", chechkUser, renderBlog)
 
 //  create blog page
 app.get("/blog-create", renderCreateBlog)
 
 // submit new blog
-app.post("/blog-create", createBlog)
+app.post("/blog-create", chechkUser, upload.single("image"), createBlog)
 
 // edit blog page
 app.get("/blog-edit/:id", renderEditBlog)

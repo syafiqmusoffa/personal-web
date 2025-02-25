@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt")
 const config = require('../config/config.json')
 const { Blog, User } = require("../models")
 const { Where } = require("sequelize/lib/utils")
+const path = require("path")
 
 const sequelize = new Sequelize(config.development)
 
@@ -172,7 +173,7 @@ async function renderEditBlog(req, res) {
         return res.redirect("/login");
     }
 
-    if (user) {
+    if (user = authorId) {
         res.render("blog-edit", { blog: blogYangDipilih, user: user })
     } else { res.redirect("/login") }
 }
@@ -180,11 +181,11 @@ async function renderEditBlog(req, res) {
 async function renderCreateBlog(req, res) {
     const user = req.session.user
     // res.render("blog-create")
-    if (user) {
-        res.render("blog-create")
-    } else {
-        res.redirect("auth-login")
-    }
+    // if (user) {
+    res.render("blog-create")
+    //     } else {
+    //         res.redirect("auth-login")
+    //     }
 }
 
 async function deleteBlog(req, res) {
@@ -205,22 +206,30 @@ async function deleteBlog(req, res) {
 }
 
 async function createBlog(req, res) {
+    const user = req.session.user
 
-    const { title, content, } = req.body
-    let image = "https://picsum.photos/200/300"
+    if (!user) {
+        req.flash("error", "Pelase login.")
+        return res.redirect("/login")
+    }
 
-    let query = `INSERT INTO "Blogs" (title, content, image) 
-    VALUES ('${title}', '${content} ', '${image} ')`;
+    const { title, content } = req.body; // title dan content adalah properti milik req.body
 
-    const newBlog = ({
-        title,
+    let dummyImage = "https://picsum.photos/200/150";
+
+    const image = req.file.path;
+    console.log("image yg di upload :", image);
+
+    const newBlog = {
+        title, // ini sama saja dengan menuliskan title: title
         content,
-        image
-    })
+        authorId: user.id,
+        image: image,
+    };
 
-    const resultSubmit = await Blog.create(newBlog)
+    const resultSubmit = await Blog.create(newBlog); // apa result nya ketika disubmit, gagal atau berhasil?
 
-    res.redirect("/blog")
+    res.redirect("/blog"); // URL, bukan nama file
 }
 
 async function updateBlog(req, res) {

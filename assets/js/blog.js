@@ -18,7 +18,7 @@ function addBlog(event) {
   };
   blogs.push(newBlog);
 
-  console.log(blogs);
+  // console.log(blogs);
 
   renderBlog();
 }
@@ -29,7 +29,7 @@ function renderBlog() {
   blogListElement.innerHTML = firstBlogContent();
 
   for (let index = 0; index < blogs.length; index++) {
-    console.log(blogs[index]);
+    // console.log(blogs[index]);
 
     blogListElement.innerHTML += `
     <article class="blog-item">
@@ -46,13 +46,12 @@ function renderBlog() {
                     ${blogs[index].title}
                 </h1>
             </a>
-            <p>${formatDateToWIB(blogs[index].postedAt)} | ${
-      blogs[index].author
-    }</p>
+            <p>${formatDateToWIB(blogs[index].postedAt)} | ${blogs[index].author
+      }</p>
             <p style="text-align: justify;">${blogs[index].content}</p>
             <p class="blog-item-relative-time">${getRelativeTime(
-              blogs[index].postedAt
-            )}</p>
+        blogs[index].postedAt
+      )}</p>
         </div>
     </article>
         `;
@@ -77,10 +76,10 @@ function firstBlogContent() {
                 <p>30 jan 2025 11:22 | Syaf</p>
                 <p style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
                 <p class="blog-item-relative-time">${getRelativeTime(
-                  new Date(
-                    "Jan 30 2025 10:15:00 GMT+0700 (Western Indonesia Time)"
-                  )
-                )}</p>
+    new Date(
+      "Jan 30 2025 10:15:00 GMT+0700 (Western Indonesia Time)"
+    )
+  )}</p>
             </div>
         </article>
     `;
@@ -118,15 +117,15 @@ function formatDateToWIB() {
 
 function getRelativeTime(postTime) {
   let now = new Date();
-  console.log("WAKTU SEKARANG :", now);
+  // console.log("WAKTU SEKARANG :", now);
 
-  console.log("WAKTU USER POST :", postTime);
+  // console.log("WAKTU USER POST :", postTime);
 
   let diffTime = now - postTime;
-  console.log("selisih waktu :", diffTime);
+  // console.log("selisih waktu :", diffTime);
 
   let diffInSeconds = Math.floor((now - postTime) / 1000);
-  console.log("selisih detik", diffInSeconds);
+  // console.log("selisih detik", diffInSeconds);
 
   if (diffInSeconds < 60) {
     return `${diffInSeconds} second${diffInSeconds === 1 ? "" : "s"} ago`;

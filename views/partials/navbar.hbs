@@ -29,9 +29,9 @@
                 <span class="me-3">Selamat datang, {{user.name}}</span>
                 <a href="/logout" class="me-3">Logout</a>
                 {{/if}}
-                {{!-- {{#if logout}}
+                {{#unless user}}
                 <a class="btn" class="nav-link" href="login">Login</a>
-                {{/if}} --}}
+                {{/unless}}
                 <a class="btn btn-orangered" class="nav-link" href="contact">Contact me</a>
             </div>
         </div>
