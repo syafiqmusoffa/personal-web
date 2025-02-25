@@ -1,7 +1,8 @@
 const { Sequelize, QueryTypes } = require("sequelize")
 const config = require("../config/config.js")
+require("dotenv").config
 
-const sequelize = new Sequelize(config.development);
+const sequelize = new Sequelize(config[process.env.NODE_ENV]);
 
 const { create } = require("hbs");
 const { query } = require("express");

@@ -5,7 +5,9 @@ const { Blog, User } = require("../models")
 const { Where } = require("sequelize/lib/utils")
 const path = require("path")
 
-const sequelize = new Sequelize(config.development)
+require("dotenv").config
+
+const sequelize = new Sequelize(config[process.env.NODE_ENV]);
 
 const saltRounds = 10
 
