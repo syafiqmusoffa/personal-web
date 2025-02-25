@@ -4,8 +4,8 @@ const pg = require("pg");
 module.exports = {
     development: {
         username: "postgres",
-        password: "13572468",
-        database: "b60_personalweb",
+        password: "12345678",
+        database: "personalweb_syafiq",
         host: "127.0.0.1",
         port: 5432,
         dialect: "postgres",
