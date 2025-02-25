@@ -50,7 +50,7 @@ app.use(flash())
 app.use(session(
     {
         name: "my-session",
-        secret: "wewegombel",
+        secret: process.env.SESSION_KEY,
         resave: false,
         saveUninitialized: true,
 
