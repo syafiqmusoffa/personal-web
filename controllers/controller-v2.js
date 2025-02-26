@@ -1,9 +1,7 @@
-const { Sequelize, where } = require("sequelize")
+const { Sequelize } = require("sequelize")
 const bcrypt = require("bcrypt")
-const config = require('../config/config.js')
+const config = require("../config/config.js")
 const { Blog, User } = require("../models")
-const { Where } = require("sequelize/lib/utils")
-const path = require("path")
 
 require("dotenv").config
 
@@ -40,7 +38,6 @@ async function authLogin(req, res) {
     delete loggedInUser.password
 
     req.session.user = loggedInUser
-    localStorage.setItem("user-data", JSON.stringify(loggedInUser))
 
     req.flash("success", `Selamat Datang, ${loggedInUser.name}`)
 
@@ -82,7 +79,7 @@ async function authRegister(req, res) {
 
 async function renderHome(req, res) {
     const user = req.session.user
-    // const userStored = localStorage.getItem("user-data")
+
     res.render("index", { user: user })
 }
 
@@ -165,31 +162,31 @@ async function renderBlogDetail(req, res) {
 }
 
 async function renderEditBlog(req, res) {
-    const user = req.session.user
+    const user = req.session.user;
     const id = req.params.id;
     const blogYangDipilih = await Blog.findOne({
         where: {
-            id: id
-        }
+            id: id,
+        },
     });
 
     if (!user) {
         return res.redirect("/login");
     }
 
-    if (user = authorId) {
-        res.render("blog-edit", { blog: blogYangDipilih, user: user })
-    } else { res.redirect("/login") }
+    if (blogYangDipilih === null) {
+        res.render("page-404");
+    } else {
+        // console.log("v2 blog detail :", blogYangDipilih);
+
+        res.render("blog-edit", { blog: blogYangDipilih, user: user });
+    }
+
 }
 
 async function renderCreateBlog(req, res) {
     const user = req.session.user
-    // res.render("blog-create")
-    // if (user) {
     res.render("blog-create")
-    //     } else {
-    //         res.redirect("auth-login")
-    //     }
 }
 
 async function deleteBlog(req, res) {

@@ -1,17 +1,15 @@
 {{#> layout currentPage='Edit Blog'}}
 <!-- EDIT BLOG -->
-<form id="edit-blog" action="/blog-update/{{blog.id}}?_method=PATCH" method="post" class="create-blog-form">
+<form id="create-blog" action="/blog-update/{{blog.id}}?_method=PATCH" method="post" class="create-blog-form">
     <h1>Edit Blog</h1>
 
     <div class="input-group mb-3">
-        <!-- <span class="input-group-text" id="title">Title</span> -->
         <input name="title" id="title" type="text" class="form-control" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-default" placeholder="Title" value="{{blog.title}}" required>
     </div>
 
 
     <div class="input-group mb-3">
-        <!-- <span class="input-group-text" >Content</span> -->
         <textarea name="content" id="content" class="form-control" aria-label="content" rows="6" placeholder="Content"
             required>{{blog.content}}</textarea>
     </div>
@@ -25,5 +23,6 @@
     </div>
 
 </form>
+
 
 {{/layout}}
