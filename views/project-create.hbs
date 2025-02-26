@@ -1,0 +1,55 @@
+{{#> layout currentPage='My Project'}}
+<!-- CREATE project -->
+<form id="create-project" action="/project-create" method="post" class="create-blog-form" enctype="multipart/form-data">
+    <h1>Create Project</h1>
+
+    <div class="input-group mb-3">
+        <!-- <span class="input-group-text" id="title">Title</span> -->
+        <input name="title" id="title" type="text" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" placeholder="Title" required>
+    </div>
+
+    <div class="input-group mb-3">
+        <input name="startAt" id="startAt" type="date" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" placeholder="startAt">
+        <input name="endAt" id="endAt" type="date" class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-default" placeholder="endAt">
+    </div>
+
+
+    <div class="input-group mb-3">
+        <!-- <span class="input-group-text" >Content</span> -->
+        <textarea name="content" id="content" class="form-control" aria-label="content" rows="6" placeholder="Content"
+            required></textarea>
+    </div>
+
+    <p>Technologies</p>
+    <div class="checkbox">
+        <div>
+            <input type="checkbox" id="nodeJs" value="nodeJs" name="tech">
+            <label for="node-js">Node Js</label>
+        </div>
+        <div>
+            <input type="checkbox" id="nextJs" value="nextJs" name="tech">
+            <label for="next-js">Next Js</label>
+        </div>
+        <div>
+            <input type="checkbox" id="reactJs" value="reactJs" name="tech">
+            <label for="react-js">React Js</label>
+        </div>
+        <div>
+            <input type="checkbox" id="typeScript" value="typeScript" name="tech">
+            <label for="type-script">Type Script</label>
+        </div>
+    </div>
+
+    <div class="input-group mb-3">
+        <input type="file" class="form-control" name="image" id="image">
+    </div>
+
+    <div class="button-container">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+{{/layout}}

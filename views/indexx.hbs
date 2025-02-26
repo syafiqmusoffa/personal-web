@@ -1,0 +1,47 @@
+{{#> layout currentPage='Home'}}
+{{#if messages.success}}
+<div class="alert alert-success mx-5 mt-2" role="alert">
+  {{messages.success}}
+</div>
+{{/if}}
+{{#if messages.warning}}
+<div class="alert alert-warning mx-5 mt-2" role="alert">
+  {{messages.warning}}
+</div>
+{{/if}}
+
+<div class="profile-papperr">
+  <div class="profile-paragraphh">
+    <h1>Welcome to my page</h1>
+    <p style="color:grey; text-align: justify;">Introducing my full name is Muhammad Syafiq Musoffa, call me
+      Syafiq. I am a bachelor's degree student who is trying to learn coding on dumbways. Basically i am
+      not an informatics graduate, and hopefully i succeed and continue at the next stage</p>
+
+    <div class="contact-downloadd">
+      <a class="contact-buttonns" href="/assets/cv.pdf" download>
+        Download <img src="/assets/img/downloads.png" style="width: 20px; text-align:center">
+      </a>
+
+    </div>
+
+    <div class="icon-sosmed">
+      <a href="https://www.instagram.com/musoffa_muhammad/"><img src="assets/img/instagram (1).png" width="30px"></a>
+
+      <a href="https://x.com/MMusoffa"><img src="assets/img/twitter (1).png" width="30px"></a>
+
+      <a href="https://web.facebook.com/syafiq.miftah"><img src="assets/img/facebook (2).png" width="30px"></a>
+    </div>
+  </div>
+  <div class="profile-cardd">
+    <img class="profile-img" src="assets/img/kucing mewing.jpg" alt="Syafiq" width="180" height="215">
+
+    <p class="mt-4" style="color:rgb(0, 0, 0); text-align: center; padding: 0px 50px 20px 50px; ">Muhammad Syafiq
+      Musoffa
+    </p>
+  </div>
+</div>
+
+
+</section>
+</main>
+{{/layout}}

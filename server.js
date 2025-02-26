@@ -9,7 +9,12 @@ const upload = require("./middlewares/upload-file")
 require("dotenv").config()
 
 const {
-
+    renderProject,
+    renderCreateProject,
+    renderEditProject,
+    createProject,
+    updateProject,
+    deleteProject
 } = require("./controllers/controller-v1")
 const {
     renderTestimonials,
@@ -20,6 +25,7 @@ const {
     authRegister,
     authLogout,
     renderBlog,
+
     renderLogin,
     renderRegister,
     renderBlogDetail,
@@ -70,7 +76,7 @@ hbs.registerHelper("getRelativeTime", getRelativeTime)
 
 app.get("/", renderHome)
 
-app.get("/index", renderHome)
+app.get("/indexx", renderHome)
 
 app.get("/login", (req, res) => {
     res.render("auth-login")
@@ -91,19 +97,25 @@ app.post("/register", authRegister)
 
 // Blog list
 
-app.get("/blog", chechkUser, renderBlog)
+app.get("/blog", renderBlog)
 
-//  create blog page
+app.get("/project", renderProject)
+
+//  create blog page & project
 app.get("/blog-create", renderCreateBlog)
+app.get("/project-create", renderCreateProject)
 
 // submit new blog
 app.post("/blog-create", chechkUser, upload.single("image"), createBlog)
+app.post("/project-create", upload.single("image"), createProject)
 
 // edit blog page
 app.get("/blog-edit/:id", renderEditBlog)
+app.get("/project-edit/:id", renderEditProject)
 
 // submit/save edited blog
 app.patch("/blog-update/:id", updateBlog)
+app.patch("/project-update/:id", updateProject)
 
 // app.post("/blog-create", (req, res) => {
 //     // const title = req.body.title
@@ -133,6 +145,7 @@ app.get("/blog/:id", renderBlogDetail)
 
 // DELETE EXISTING BLOG
 app.delete("/blog/:id", deleteBlog)
+app.delete("/project/:id", deleteProject)
 
 // Testimonials
 

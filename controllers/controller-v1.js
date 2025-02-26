@@ -1,6 +1,11 @@
-const { Sequelize, QueryTypes } = require("sequelize")
+const { Sequelize, QueryTypes, DATE, INTEGER } = require("sequelize")
 const config = require("../config/config.js")
 require("dotenv").config
+const bcrypt = require("bcrypt")
+
+const { User, BLog, Project } = require("../models")
+
+const saltRounds = 10;
 
 const sequelize = new Sequelize(config[process.env.NODE_ENV]);
 
@@ -125,6 +130,106 @@ async function deleteBlog(req, res) {
     res.redirect("/blog")
 }
 
+// all about project
+
+async function renderProject(req, res) {
+    const user = req.session.user;
+    const query = `SELECT * FROM "Projects"`
+    const projects = await sequelize.query(query, {
+        type: QueryTypes.SELECT
+    })
+
+    res.render("project", { projects: projects, user: user })
+}
+
+function renderCreateProject(req, res) {
+    res.render("project-create")
+}
+
+async function renderEditProject(req, res) {
+    const user = req.session.user;
+    const id = req.params.id;
+    const query = `SELECT * FROM "Projects" WHERE id=${id}`;
+    const renderProjectDipilih = await sequelize.query(query, {
+        type: QueryTypes.SELECT
+    })
+
+    if (!user) {
+        return res.redirect('/login')
+    }
+
+    if (renderProjectDipilih === null) {
+        res.render("page-404")
+    } else {
+        res.render("project-edit", { project: renderProjectDipilih[0], user: user });
+    }
+    // console.log("ini yamg mau di render ", renderProjectDetail[0]);
+}
+
+async function createProject(req, res) {
+    const user = req.session.user;
+
+    const authorId = user.id;
+
+    const { title, startAt, endAt, content } = req.body;
+
+    // let technologies = tech.join(", ");
+
+    const checkedTechnologies = ["nodeJs", "nextJs", "reactJs", "typeScript"]
+    const tech = checkedTechnologies.join(", ")
+
+    const oneDay = 24 * 60 * 60 * 1000;
+    var tglPertama = Date.parse(startAt);
+    var tglKedua = Date.parse(endAt);
+
+    var selisih = (tglKedua - tglPertama) / oneDay;
+
+    // console.log("Total hari: ", selisih);
+
+    const image = req.file.path;
+    // console.log("gambar yang di upload ", image);   
+
+
+    const query = `INSERT INTO  "Projects" ("authorId", title, content, tech, "startAt", "endAt", image, "selisihWaktu")
+                      VALUES ('${authorId}','${title}', '${content}', '${tech}', '${startAt}','${endAt}', '${image}', '${selisih}')`;
+
+    const projects = await sequelize.query(query, {
+        type: QueryTypes.INSERT
+    });
+
+
+    res.redirect("/project")
+}
+
+async function deleteProject(req, res) {
+    const user = req.session.user
+    const id = req.params.id;
+    // console.log("ini id yan gmau dihapus: ", id);
+    const query = `DELETE FROM "Projects" WHERE id = ${id}`;
+
+
+    if (user) {
+        const deleteResult = await sequelize.query(query, {
+            type: QueryTypes.DELETE
+        })
+        res.redirect("/project")
+    } else {
+        res.redirect('/login')
+    }
+
+}
+
+async function updateProject(req, res) {
+    const id = req.params.id;
+    const { title, content } = req.body
+
+    const query = `UPDATE "Projects" SET title='${title}', content='${content}'    WHERE id = ${id}`
+
+    const updateResult = await sequelize.query(query, { type: QueryTypes.UPDATE })
+
+    res.redirect("/project")
+}
+
 module.exports = {
     renderHome,
     renderBlog,
@@ -135,6 +240,13 @@ module.exports = {
     deleteBlog,
     renderCreateBlog,
     renderEditBlog,
-    updateBlog
+    updateBlog,
+
+    renderProject,
+    renderCreateProject,
+    renderEditProject,
+    createProject,
+    updateProject,
+    deleteProject
 }
 

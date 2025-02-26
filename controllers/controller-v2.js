@@ -1,7 +1,9 @@
-const { Sequelize } = require("sequelize")
+const { Sequelize, where, QueryTypes } = require("sequelize")
 const bcrypt = require("bcrypt")
 const config = require("../config/config.js")
-const { Blog, User } = require("../models")
+const { Blog, User, Project } = require("../models")
+const { Where } = require("sequelize/lib/utils")
+const query = require('express')
 
 require("dotenv").config
 
@@ -80,7 +82,7 @@ async function authRegister(req, res) {
 async function renderHome(req, res) {
     const user = req.session.user
 
-    res.render("index", { user: user })
+    res.render("indexx", { user: user })
 }
 
 async function renderContact(req, res) {
@@ -143,6 +145,8 @@ async function renderBlog(req, res) {
         res.render("blog", { blogs: blogs })
     }
 }
+
+
 
 async function renderBlogDetail(req, res) {
     const user = req.session.user
@@ -255,6 +259,25 @@ async function renderError(req, res) {
     res.render("page-404", { user: user })
 }
 
+async function createProject(req, res) {
+    const user = await req.session.user;
+    const { title, startAt, endAt, content, tech } = req.body;
+    // const image = req.file.path
+    const image = req.file.path;
+    const newProject = {
+        title,
+        authorId: user.id,
+        image: image,
+        startAt,
+        endAt,
+        content,
+        tech: tech ? [].concat(tech).join() : '',
+    };
+    const resultSubmit = await Project.create(newProject);
+    res.redirect('/project');
+    // console.log(newProject.technologies.split(','));
+}
+
 module.exports = {
     authLogin,
     authLogout,
@@ -271,5 +294,6 @@ module.exports = {
     updateBlog,
     renderEditBlog,
     renderCreateBlog,
-    createBlog
+    createBlog,
+    createProject
 }

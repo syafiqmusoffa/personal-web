@@ -16,7 +16,7 @@ nav {
 }
 
 .btn-orangered {
-    background-color: orangered !important;
+    background-color: brown !important;
     color: white !important;
 }
 
@@ -69,7 +69,7 @@ nav {
 
 .nav-contact-button {
     text-decoration: none;
-    background-color: red;
+    background-color: brown;
     color: white;
     padding: 10px 25px;
     border-radius: 30px;
@@ -90,7 +90,7 @@ nav {
 .auth-form button {
     font-size: 16px;
     font-family: "Poppins", serif;
-    background-color: orangered;
+    background-color: brown;
     color: white;
     padding: 10px 25px;
     border-radius: 5px;
@@ -153,6 +153,87 @@ nav {
     width: 100%;
     display: flex;
     margin: 0 auto;
+}
+
+
+/* card section part2 */
+.profile-papperr {
+    border-style: none;
+    border-color: gray;
+    width: 70%;
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px 5px #aba9a9;
+    margin: auto;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.contact-downloadd {
+    display: flex;
+    gap: 15px;
+
+}
+
+.contact-downloadd a :hover {
+    width: 30px;
+}
+
+.profile-paragraphh {
+    border: none;
+    border-color: lightgrey;
+    margin: 30px;
+}
+
+.contact-buttonn {
+    border: none;
+    text-decoration: none;
+    background: brown;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: auto;
+    cursor: pointer;
+}
+
+.contact-buttonns {
+    border: none;
+    text-decoration: none;
+    background: grey;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: auto;
+    cursor: pointer;
+}
+
+.icon-sosmed {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon-sosmed :hover {
+    width: 50px;
+}
+
+.profile-cardd {
+    align-items: center;
+    border-style: none;
+    width: auto;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px 5px #aba9a9;
+    margin: 25px;
+}
+
+.profile-img {
+    border-radius: 15px;
+    padding: 0%;
+    width: 100%;
+    height: 50%;
 }
 
 
@@ -248,7 +329,7 @@ textarea {
 .create-blog-form button {
     font-size: 16px;
     font-family: "Poppins", serif;
-    background-color: orangered;
+    background-color: brown;
     color: white;
     padding: 10px 25px;
     border-radius: 5px;
@@ -321,7 +402,7 @@ textarea {
     text-decoration: none;
     font-size: 16px;
     font-family: "Poppins", serif;
-    background-color: orangered;
+    background-color: brown;
     color: white;
     padding: 10px 25px;
     border-radius: 5px;
@@ -335,6 +416,64 @@ textarea {
     text-align: right;
     font-size: 14px;
 }
+
+/* my project */
+.add-project {
+    text-decoration: none;
+    background-color: brown;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.project-list {
+    width: 90%;
+    margin: 30px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    align-content: center;
+}
+
+.garis {
+    align-items: center;
+}
+
+.coll {
+    margin: 10px auto;
+}
+
+.card-img {
+    width: 300px;
+    height: 200px;
+}
+
+.project-button {
+    display: flex;
+    justify-content: center;
+}
+
+.tombol-project {
+    text-decoration: none;
+    font-size: 16px;
+    font-family: "Poppins", serif;
+    background-color: blue;
+    color: white;
+    padding: 10px 17%;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+/* create project */
+.checkbox {
+    display: grid;
+    /* justify-content: center; */
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+}
+
 
 /* BLOG DETAIL STYLES */
 .blog-detail {
@@ -406,6 +545,11 @@ textarea {
         margin: 5px 0;
     }
 
+    /* home */
+    .profile-papperr {
+        display: contents;
+    }
+
     /* blog form */
     .create-blog-form {
         width: fit-content;
@@ -439,6 +583,11 @@ textarea {
 
     .blog-item-img img {
         width: 100%;
+    }
+
+    /* project */
+    .project-list {
+        grid-template-columns: repeat(1, 1fr);
     }
 
 

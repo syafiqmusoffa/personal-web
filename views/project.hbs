@@ -1,0 +1,42 @@
+{{#> layout currentPage='My Project'}}
+
+
+<!-- content -->
+<div class="container-lg mt-3 mb-5 contProject">
+    <h1 style="text-align: center;">My Project</h1>
+    <div style="text-align:right; margin: 20px auto;">
+        {{#if user }}
+        <form action="" method="post">
+            <a class="add-project" href="/project-create">Add Project</a>
+        </form>
+        {{/if }}
+    </div>
+    <hr class="garis">
+
+    <div class="container project-list">
+        <!-- bagian konten card -->
+        {{#each projects}}
+        <div class="coll">
+            <section class="card" style="width: 18rem; ">
+                <img src="{{this.image}}" class="card-img" alt="">
+                <div class="card-body">
+                    <h4 style="text-align: center;">{{this.title}}</h4>
+                    <p class="mt-2" style="text-align: center;;color: grey;">durasi: {{this.selisihWaktu}} hari</p>
+                    <p class="card-text">{{this.content}}</p>
+                    <p style="font-style: italic;">{{this.tech}}</p>
+
+                    {{#if (equal ../user.id this.authorId)}}
+                    <div class="project-button">
+                        <a href="/project-edit/{{this.id}}" class="btn btn-primary">Update</a>
+                        <form action="/project/{{this.id}}?_method=DELETE" method="post">
+                            <button class="btn btn-danger" onclick="return confirm('hapus?')">Hapus</button>
+                        </form>
+                    </div>
+                    {{/if}}
+                </div>
+            </section>
+        </div>
+        {{/each}}
+
+    </div>
+    {{/layout}}
