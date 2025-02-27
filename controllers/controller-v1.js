@@ -134,8 +134,8 @@ async function deleteBlog(req, res) {
 
 async function renderProject(req, res) {
     const user = req.session.user;
-    const query = `SELECT * FROM "Projects"`
-    const projects = await sequelize.query(query, {
+
+    const projects = await sequelize.query(`SELECT * FROM "Projects" ORDER BY "createdAt" DESC`, {
         type: QueryTypes.SELECT
     })
 
@@ -143,7 +143,8 @@ async function renderProject(req, res) {
 }
 
 function renderCreateProject(req, res) {
-    res.render("project-create")
+    const user = req.session.user
+    res.render("project-create", { user: user })
 }
 
 async function renderEditProject(req, res) {

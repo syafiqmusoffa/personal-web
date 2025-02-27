@@ -449,9 +449,17 @@ textarea {
     height: 200px;
 }
 
+.icon-button {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+}
+
 .project-button {
     display: flex;
     justify-content: center;
+    gap: 10px
 }
 
 .tombol-project {
@@ -550,6 +558,10 @@ textarea {
         display: contents;
     }
 
+    .profile-cardd {
+        width: 30%;
+    }
+
     /* blog form */
     .create-blog-form {
         width: fit-content;
@@ -583,6 +595,11 @@ textarea {
 
     .blog-item-img img {
         width: 100%;
+    }
+
+    .blog-detail img {
+        width: 300px;
+        height: 200px;
     }
 
     /* project */

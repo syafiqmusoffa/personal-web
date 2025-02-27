@@ -23,6 +23,11 @@
     gap: 30px;
 }
 
+.testimonial-list article img {
+    width: 400px;
+    height: 300px;
+}
+
 
 .testimonial-list article {
     /* width: 30%; */

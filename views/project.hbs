@@ -24,12 +24,17 @@
                     <p class="mt-2" style="text-align: center;;color: grey;">durasi: {{this.selisihWaktu}} hari</p>
                     <p class="card-text">{{this.content}}</p>
                     <p style="font-style: italic;">{{this.tech}}</p>
+                    <div class="icon-button" style="">
+                        <img src="assets/img/playstore.png" width="30px">
+                        <img src="assets/img/android.png" width="30px">
+                        <img src="assets/img/program.png" width="30px">
+                    </div>
 
                     {{#if (equal ../user.id this.authorId)}}
                     <div class="project-button">
                         <a href="/project-edit/{{this.id}}" class="btn btn-primary">Update</a>
-                        <form action="/project/{{this.id}}?_method=DELETE" method="post">
-                            <button class="btn btn-danger" onclick="return confirm('hapus?')">Hapus</button>
+                        <form id="deleteProject" action="/project/{{this.id}}?_method=DELETE" method="post">
+                            <button class="btn btn-danger" onclick="deleteConfirm(event)">Hapus</button>
                         </form>
                     </div>
                     {{/if}}
@@ -37,6 +42,6 @@
             </section>
         </div>
         {{/each}}
-
+        <script src="/assets/js/deleteProject.js"></script>
     </div>
     {{/layout}}

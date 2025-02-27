@@ -190,7 +190,7 @@ async function renderEditBlog(req, res) {
 
 async function renderCreateBlog(req, res) {
     const user = req.session.user
-    res.render("blog-create")
+    res.render("blog-create", { user: user })
 }
 
 async function deleteBlog(req, res) {
