@@ -18,7 +18,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "postinstall": "sequelize db:migrate",
+    "postinstall": "sequelize db:migrate --env production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js"
