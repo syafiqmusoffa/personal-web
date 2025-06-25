@@ -46,38 +46,39 @@ async function authLogin(req, res) {
     res.redirect("/")
 }
 async function authRegister(req, res) {
-    const { name, email, password, confirmPassword } = req.body // object destructuring
+  const { name, email, password, confirmPassword } = req.body;
 
-    if (password != confirmPassword) {
-        req.flash("error", "Password dan confirm password tidak sama!")
-        return res.redirect("/register")
-    }
+  console.log(req.body);
 
-    const user = await User.findOne({
-        where: {
-            email: email,
-        }
-    })
+  if (!name || !email || !password || !confirmPassword) {
+    req.flash("error", "Semua field harus diisi!");
+    return res.redirect("/register");
+  }
 
-    if (user) {
-        req.flash("error", "Email sudah terdaftar")
-        return res.redirect("/register")
-    }
+  if (password !== confirmPassword) {
+    req.flash("error", "Password dan confirm password tidak sama!");
+    return res.redirect("/register");
+  }
 
-    const hashedPassword = await bcrypt.hash(password, saltRounds)
+  const existingUser = await User.findOne({ where: { email } });
 
-    const newUser = await User.create({
-        name: name,
-        email: email,
-        password: hashedPassword,
-    })
+  if (existingUser) {
+    req.flash("error", "Email sudah terdaftar");
+    return res.redirect("/register");
+  }
 
-    const userInsert = await User.create(newUser)
+  const hashedPassword = await bcrypt.hash(password, 10);
 
-    req.flash("success", "Berhasil mendaftar! Silahkan login")
+  await User.create({
+    name,
+    email,
+    password: hashedPassword,
+  });
 
-    res.redirect("/login")
+  req.flash("success", "Berhasil mendaftar! Silahkan login");
+  return res.redirect("/login");
 }
+  
 
 async function renderHome(req, res) {
     const user = req.session.user
