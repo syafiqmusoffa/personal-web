@@ -82,7 +82,7 @@ async function authRegister(req, res) {
 async function renderHome(req, res) {
     const user = req.session.user
 
-    res.render("indexx", { user: user })
+    res.render("index", { user: user })
 }
 
 async function renderContact(req, res) {

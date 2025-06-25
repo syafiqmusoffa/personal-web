@@ -76,7 +76,7 @@ hbs.registerHelper("getRelativeTime", getRelativeTime)
 
 app.get("/", renderHome)
 
-app.get("/indexx", renderHome)
+app.get("/index", renderHome)
 
 app.get("/login", (req, res) => {
     res.render("auth-login")
