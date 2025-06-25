@@ -41,6 +41,31 @@ const chechkUser = require("./middlewares/auth");
 
 const port = process.env.SERVER_PORT || 3000;
 
+const session = require("express-session");
+const RedisStore = require("connect-redis")(session);
+const Redis = require("ioredis");
+
+// Buat client Redis pakai TLS dari Upstash
+const redisClient = new Redis(process.env.UPSTASH_REDIS_TLS_URL, {
+  tls: {},
+});
+
+app.use(
+  session({
+    store: new RedisStore({ client: redisClient }),
+    secret: process.env.SESSION_SECRET || "mysecret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: process.env.NODE_ENV === "production", // true on Vercel
+      httpOnly: true,
+      sameSite: "lax",
+      maxAge: 1000 * 60 * 60 * 24, // 1 hari
+    },
+  })
+);
+
+
 app.set("view engine", "hbs");
 app.set(`views`, path.join(__dirname, "./views"));
 
